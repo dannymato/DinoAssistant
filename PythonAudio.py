@@ -5,7 +5,7 @@ from ctypes import POINTER, c_ubyte, c_void_p, c_ulong, cast
 from pulseaudio.lib_pulseaudio import *
 
 SINK_NAME = 'alsa_output.pci-0000_00_1f.3.analog-stereo'
-METER_RATE = 344
+METER_RATE = 1000
 MAX_SAMPLE_VALUE = 127
 DISPLAY_SCALE = 2
 MAX_SPACES = MAX_SAMPLE_VALUE >> DISPLAY_SCALE
