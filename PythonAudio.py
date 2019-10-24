@@ -96,10 +96,9 @@ class PeakMonitor(object):
 
 def main():
 	monitor = PeakMonitor(SINK_NAME, METER_RATE)
-	i = 0
 	for sample in monitor:
-		if sample > 15:
-			print("peak", i)
-			i = i + 1
+		if sample > 0:
+			print("peak", sample)
+			
 if __name__ == '__main__':
 	main()
