@@ -1,0 +1,4 @@
+*.pyc
+python-pulseaudio/
+assistant-sdk-python/
+env/
