@@ -182,12 +182,15 @@ class SampleTextAssistant(object):
               metavar='<audio flush size>', show_default=True,
               help=('Size of silence data in bytes written '
                     'during flush operation'))
+@click.option('--audio-output-file', '-o',
+              metavar="<output file>",
+              help='Path to output audio file.')
 
 def main(api_endpoint, credentials,
          device_model_id, device_id, lang, display, verbose,
          grpc_deadline,audio_sample_rate, audio_block_size,
          audio_iter_size, audio_sample_width, audio_flush_size,
-         *args, **kwargs):
+         audio_output_file, *args, **kwargs):
     # Setup logging.
     logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO)
 
@@ -219,14 +222,21 @@ def main(api_endpoint, credentials,
         )
     )
 
-    audio_sink = audio_device = (
-        audio_device or audio_helpers.SoundDeviceStream(
+    if audio_output_file:
+        audio_sink = audio_helpers.WaveSink(
+            open(audio_output_file, 'wb'),
             sample_rate=audio_sample_rate,
-            sample_width=audio_sample_width,
-            block_size=audio_block_size,
-            flush_size=audio_flush_size
+            sample_width=audio_sample_width
         )
-    )
+    else:
+        audio_sink = audio_device = (
+            audio_device or audio_helpers.SoundDeviceStream(
+                sample_rate=audio_sample_rate,
+                sample_width=audio_sample_width,
+                block_size=audio_block_size,
+                flush_size=audio_flush_size
+            )
+        )
 
     conversation_stream = audio_helpers.ConversationStream(
         source=audio_source,
