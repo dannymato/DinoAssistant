@@ -1,6 +1,7 @@
 import sys
 from queue import Queue
 from ctypes import POINTER, c_ubyte, c_void_p, c_ulong, cast
+import AudioSeries
 
 from pulseaudio.lib_pulseaudio import *
 
@@ -96,9 +97,11 @@ class PeakMonitor(object):
 
 def main():
 	monitor = PeakMonitor(SINK_NAME, METER_RATE)
+	series = AudioSeries.AudioSeries(lag = 10)
 	for sample in monitor:
 		if sample > 0:
-			print("peak", sample)
+			series.add_value(sample)
+			series.get_trend()
 			
 if __name__ == '__main__':
 	main()
