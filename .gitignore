@@ -3,3 +3,4 @@ python-pulseaudio/
 assistant-sdk-python/
 env/
 start_assistant*
+*.wav
