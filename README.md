@@ -11,8 +11,8 @@ This uses Google's samples for the Google Assistant API for python modified for 
 Navigate to the folder you wish to download to
 
 ```
-$	git clone <insert webpage here>
-$	cd <dir>
+$	git clone https://github.com/dannymato/DinoAssistant.git
+$	cd DinoAssistant
 ```
 Install virtualenv which is different for each distro
 
@@ -26,3 +26,4 @@ $	source env/bin/activate
 (env) $ 	python -m
 
 ```
+Readme not complete yet
