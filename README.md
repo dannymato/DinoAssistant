@@ -15,6 +15,7 @@ $	git clone <insert webpage here>
 $	cd <dir>
 ```
 Install virtualenv which is different for each distro
+
 ```
 $	python -m venv env
 
@@ -23,4 +24,5 @@ $	source env/bin/activate
 
 (env) $ 	python -m pip install --upgrade google-assistant-sdk[samples]
 (env) $ 	python -m
+
 ```

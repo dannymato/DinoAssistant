@@ -66,8 +66,6 @@ class PeakMonitor(object):
 
 		if sink_info.name.decode() == self.sink_name:
 
-			
-
 			print()
 			print('Setting up Peak Recording Using', sink_info.monitor_source_name)
 			print()

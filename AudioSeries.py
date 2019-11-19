@@ -28,4 +28,3 @@ class AudioSeries(object):
 		simp_trend = int(self.trend)
 		if simp_trend != 0:
 			print(simp_trend)
-
