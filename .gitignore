@@ -4,3 +4,4 @@ assistant-sdk-python/
 env/
 start_assistant*
 *.wav
+.vscode/
